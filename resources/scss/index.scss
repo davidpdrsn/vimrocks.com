@@ -1,0 +1,80 @@
+@import "mixins";
+@import "variables";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-shadow: inset 0 0 100px black;
+  height: 100%;
+}
+
+body {
+  margin-top: 200px;
+  background: darken(rgb(157,157,157), 50%);
+}
+
+section {
+  position: relative;
+  background: red;
+  h1 {
+    -webkit-animation: rotate 10s linear infinite;
+    -webkit-transform-origin: center;
+    height: 300px;
+    width: 300px;
+    color: lighten(green, 10%);
+    color: white;
+    font-weight: normal;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    text-shadow: 0 0 5px black;
+
+    span.char {
+      font-family: monospace;
+      display: inline-block;
+      height: 300px;
+      position: absolute;
+      font-size: 50px;
+    }
+    $rotation: 20deg;
+    span.char-2  { -webkit-transform: rotate($rotation);     }
+    span.char-3  { -webkit-transform: rotate($rotation * 2); }
+    span.char-4  { -webkit-transform: rotate($rotation * 3); }
+    span.char-5  { -webkit-transform: rotate($rotation * 4); }
+    span.char-6  { -webkit-transform: rotate($rotation * 5); }
+    span.char-7  { -webkit-transform: rotate($rotation * 6); }
+    span.char-8  { -webkit-transform: rotate($rotation * 7); }
+    span.char-9  { -webkit-transform: rotate($rotation * 8); }
+    span.char-10 { -webkit-transform: rotate($rotation * 9); }
+
+  } // h1
+
+  h2.logo {
+    $size: 70px;
+    @include size($size);
+    z-index: 100;
+    background: url(../img/vim.png);
+    background-size: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -$size / 2;
+    top: 136px;
+  }
+} // section
+
+@-webkit-keyframes rotate {
+  from { -webkit-transform: rotate(0deg);   }
+  to   { -webkit-transform: rotate(360deg); }
+}
+
+.ir {
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent;
+}
