@@ -7,31 +7,44 @@
 }
 
 html {
-  box-shadow: inset 0 0 100px black;
+  @include box-shadow(inset 0 0 100px black);
   height: 100%;
 }
 
 body {
-  margin-top: 200px;
   background: darken(rgb(157,157,157), 50%);
 }
 
 section {
-  position: relative;
-  background: red;
+  position: absolute;
+  float: left;
+  height: 300px;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+
   h1 {
+    margin: 0;
+    padding: 0;
     -webkit-animation: rotate 10s linear infinite;
+    -moz-animation: rotate 10s linear infinite;
+    animation: rotate 10s linear infinite;
     -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    transform-origin: center;
     height: 300px;
     width: 300px;
     color: lighten(green, 10%);
     color: white;
     font-weight: normal;
     text-align: center;
-    position: absolute;
-    left: 50%;
-    margin-left: -150px;
-    text-shadow: 0 0 5px black;
+    &:hover {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      animation-play-state: paused;
+    }
 
     span.char {
       font-family: monospace;
@@ -41,15 +54,51 @@ section {
       font-size: 50px;
     }
     $rotation: 20deg;
-    span.char-2  { -webkit-transform: rotate($rotation);     }
-    span.char-3  { -webkit-transform: rotate($rotation * 2); }
-    span.char-4  { -webkit-transform: rotate($rotation * 3); }
-    span.char-5  { -webkit-transform: rotate($rotation * 4); }
-    span.char-6  { -webkit-transform: rotate($rotation * 5); }
-    span.char-7  { -webkit-transform: rotate($rotation * 6); }
-    span.char-8  { -webkit-transform: rotate($rotation * 7); }
-    span.char-9  { -webkit-transform: rotate($rotation * 8); }
-    span.char-10 { -webkit-transform: rotate($rotation * 9); }
+    span.char-2 {
+      -webkit-transform: rotate($rotation);
+      -moz-transform: rotate($rotation);
+      transform: rotate($rotation);
+    }
+    span.char-3 {
+      -webkit-transform: rotate($rotation * 2);
+      -moz-transform: rotate($rotation * 2);
+      transform: rotate($rotation * 2);
+    }
+    span.char-4 {
+      -webkit-transform: rotate($rotation * 3);
+      -moz-transform: rotate($rotation * 3);
+      transform: rotate($rotation * 3);
+    }
+    span.char-5 {
+      -webkit-transform: rotate($rotation * 4);
+      -moz-transform: rotate($rotation * 4);
+      transform: rotate($rotation * 4);
+    }
+    span.char-6 {
+      -webkit-transform: rotate($rotation * 5);
+      -moz-transform: rotate($rotation * 5);
+      transform: rotate($rotation * 5);
+    }
+    span.char-7 {
+      -webkit-transform: rotate($rotation * 6);
+      -moz-transform: rotate($rotation * 6);
+      transform: rotate($rotation * 6);
+    }
+    span.char-8 {
+      -webkit-transform: rotate($rotation * 7);
+      -moz-transform: rotate($rotation * 7);
+      transform: rotate($rotation * 7);
+    }
+    span.char-9 {
+      -webkit-transform: rotate($rotation * 8);
+      -moz-transform: rotate($rotation * 8);
+      transform: rotate($rotation * 8);
+    }
+    span.char-10 {
+      -webkit-transform: rotate($rotation * 9);
+      -moz-transform: rotate($rotation * 9);
+      transform: rotate($rotation * 9);
+    }
 
   } // h1
 
@@ -63,12 +112,61 @@ section {
     left: 50%;
     margin-left: -$size / 2;
     top: 136px;
+    top: 50%;
+    left: 50%;
+    margin-top: (-$size / 2);
+    margin-left: (-$size / 2);
+    pointer-events: none;
   }
 } // section
 
+aside {
+  $color: rgba(255,255,255,.3);
+  color: $color;
+  font-size: 12px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  transition: all .3s linear;
+  a, a:visited {
+    color: $color;
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    transition: all .3s linear;
+  }
+  &:hover, &:hover a {
+    $color: rgba(255,255,255,.7);
+    color: $color;
+  }
+}
+
 @-webkit-keyframes rotate {
-  from { -webkit-transform: rotate(0deg);   }
-  to   { -webkit-transform: rotate(360deg); }
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .ir {

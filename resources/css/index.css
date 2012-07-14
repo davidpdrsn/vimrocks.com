@@ -18,29 +18,41 @@
   margin: 0; }
 
 html {
+  -webkit-box-shadow: inset 0 0 100px black;
   box-shadow: inset 0 0 100px black;
   height: 100%; }
 
 body {
-  margin-top: 200px;
   background: #1e1e1e; }
 
 section {
-  position: relative;
-  background: red; }
+  position: absolute;
+  float: left;
+  height: 300px;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px; }
   section h1 {
+    margin: 0;
+    padding: 0;
     -webkit-animation: rotate 10s linear infinite;
+    -moz-animation: rotate 10s linear infinite;
+    animation: rotate 10s linear infinite;
     -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    transform-origin: center;
     height: 300px;
     width: 300px;
     color: #00b300;
     color: white;
     font-weight: normal;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    margin-left: -150px;
-    text-shadow: 0 0 5px black; }
+    text-align: center; }
+    section h1:hover {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      animation-play-state: paused; }
     section h1 span.char {
       font-family: monospace;
       display: inline-block;
@@ -48,23 +60,41 @@ section {
       position: absolute;
       font-size: 50px; }
     section h1 span.char-2 {
-      -webkit-transform: rotate(20deg); }
+      -webkit-transform: rotate(20deg);
+      -moz-transform: rotate(20deg);
+      transform: rotate(20deg); }
     section h1 span.char-3 {
-      -webkit-transform: rotate(40deg); }
+      -webkit-transform: rotate(40deg);
+      -moz-transform: rotate(40deg);
+      transform: rotate(40deg); }
     section h1 span.char-4 {
-      -webkit-transform: rotate(60deg); }
+      -webkit-transform: rotate(60deg);
+      -moz-transform: rotate(60deg);
+      transform: rotate(60deg); }
     section h1 span.char-5 {
-      -webkit-transform: rotate(80deg); }
+      -webkit-transform: rotate(80deg);
+      -moz-transform: rotate(80deg);
+      transform: rotate(80deg); }
     section h1 span.char-6 {
-      -webkit-transform: rotate(100deg); }
+      -webkit-transform: rotate(100deg);
+      -moz-transform: rotate(100deg);
+      transform: rotate(100deg); }
     section h1 span.char-7 {
-      -webkit-transform: rotate(120deg); }
+      -webkit-transform: rotate(120deg);
+      -moz-transform: rotate(120deg);
+      transform: rotate(120deg); }
     section h1 span.char-8 {
-      -webkit-transform: rotate(140deg); }
+      -webkit-transform: rotate(140deg);
+      -moz-transform: rotate(140deg);
+      transform: rotate(140deg); }
     section h1 span.char-9 {
-      -webkit-transform: rotate(160deg); }
+      -webkit-transform: rotate(160deg);
+      -moz-transform: rotate(160deg);
+      transform: rotate(160deg); }
     section h1 span.char-10 {
-      -webkit-transform: rotate(180deg); }
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      transform: rotate(180deg); }
   section h2.logo {
     width: 70px;
     height: 70px;
@@ -74,7 +104,29 @@ section {
     position: absolute;
     left: 50%;
     margin-left: -35px;
-    top: 136px; }
+    top: 136px;
+    top: 50%;
+    left: 50%;
+    margin-top: -35px;
+    margin-left: -35px;
+    pointer-events: none; }
+
+aside {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  transition: all .3s linear; }
+  aside a, aside a:visited {
+    color: rgba(255, 255, 255, 0.3);
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    transition: all .3s linear; }
+  aside:hover, aside:hover a {
+    color: rgba(255, 255, 255, 0.7); }
 
 @-webkit-keyframes rotate {
   from {
@@ -82,6 +134,20 @@ section {
 
   to {
     -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg); }
+
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-keyframes rotate {
+  from {
+    transform: rotate(0deg); }
+
+  to {
+    transform: rotate(360deg); } }
 
 .ir {
   border: 0;
