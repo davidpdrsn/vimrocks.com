@@ -1,0 +1,127 @@
+// Set width and height both at once
+@mixin size($dimensions) {
+  width: $dimensions;
+  height: $dimensions;
+}
+
+// Remove margin and padding
+@mixin no_margin_padding {
+  padding: 0;
+  margin: 0;
+}
+
+// Make a ul horizontal
+@mixin horizontal_list {
+  list-style: none;
+  overflow: hidden;
+  li {
+    display: block;
+    float: left;
+  }
+}
+
+// absolutely position an element in the center
+@mixin absolute_position_centering($width) {
+  position: absolute;
+  left: 50%;
+  margin-left: -$width / 2;
+}
+
+// Make a pseudo element absolutely positioned
+@mixin pseudo_element_absolute {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+/* ==========================================================
+   Removing default styles
+   ========================================================== */
+
+@mixin remove_link_styles {
+  a {
+    color: inherit;
+    border: none;
+    text-decoration: none;
+    &:hover, &:visited {
+      color: inherit;
+    }
+  }
+}
+
+// Remove default submit button styles
+@mixin remove_submit_button_styles {
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* ==========================================================
+   CSS3 with vendor prefixes
+   ========================================================== */
+
+// Border-radius with vendor prefixes
+@mixin border_radius($r) {
+  -webkit-border-radius: $r;
+  border-radius: $r;
+  // prevent leaking of background color
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+// Box-sizing with vendor prefixes
+@mixin border_box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Box-shadow with vendor prefixes
+@mixin box_shadow($arg) {
+  -webkit-box-shadow: $arg;
+  box-shadow: $arg;
+}
+
+// Opacity with filter prop for IE6-8
+@mixin opacity($a) {
+  opacity: $a;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" $a * 100 ")";
+  filter: alpha(opacity= $a * 100 );
+  zoom: 1;
+}
+
+// Background size
+@mixin background_size($arg) {
+  -webkit-background-size: $arg;
+  background-size: $arg;
+}
+
+// Text shadow
+// Prefixes are not needed, but its here for consistency
+@mixin text_shadow($arg) {
+  text-shadow: $arg;
+}
+
+// A simple linear gradient
+@mixin gradient($from, $to){
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr= '#{$to}');
+  background: -webkit-linear-gradient(top, $from, $to);
+  background: -moz-linear-gradient(top, $from, $to);
+  background: linear-gradient(top, $from, $to);
+}
+
+/* ==========================================================
+   Functions
+   ========================================================== */
+
+// Calculate the width of something using the responsive formular
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
