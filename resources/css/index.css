@@ -18,8 +18,8 @@
   margin: 0; }
 
 html {
-  -webkit-box-shadow: inset 0 0 100px black;
-  box-shadow: inset 0 0 100px black;
+  -webkit-box-shadow: inset 0 0 200px black;
+  box-shadow: inset 0 0 200px black;
   height: 100%; }
 
 body {
@@ -54,7 +54,7 @@ section {
       -moz-animation-play-state: paused;
       animation-play-state: paused; }
     section h1 span.char {
-      font-family: monospace;
+      font-family: DejaVuSansMono, monospace;
       display: inline-block;
       height: 300px;
       position: absolute;
